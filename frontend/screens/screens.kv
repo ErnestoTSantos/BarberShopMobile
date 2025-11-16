@@ -1,0 +1,86 @@
+WindowManager:
+    LoginScreen:
+    RegisterScreen:
+    HomeScreen:
+
+<LoginScreen>:
+    name: "login"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(20)
+
+        MDTopAppBar:
+            title: "Login"
+            elevation: 10
+
+        MDTextField:
+            id: email
+            hint_text: "Email"
+            mode: "rectangle"
+
+        MDTextField:
+            id: password
+            hint_text: "Password"
+            password: True
+            mode: "rectangle"
+
+        MDRaisedButton:
+            text: "Login"
+            pos_hint: {"center_x": 0.5}
+            on_release: root.login_user()
+
+        MDTextButton:
+            text: "Create Account"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "register"
+
+<RegisterScreen>:
+    name: "register"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(20)
+
+        MDTopAppBar:
+            title: "Register"
+            elevation: 10
+
+        MDTextField:
+            id: name
+            hint_text: "Name"
+            mode: "rectangle"
+
+        MDTextField:
+            id: email
+            hint_text: "Email"
+            mode: "rectangle"
+
+        MDTextField:
+            id: password
+            hint_text: "Password"
+            password: True
+            mode: "rectangle"
+
+        MDRaisedButton:
+            text: "Register"
+            pos_hint: {"center_x": 0.5}
+            on_release: root.register_user()
+
+        MDTextButton:
+            text: "Back"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "login"
+
+<HomeScreen>:
+    name: "home"
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "Establishments"
+            elevation: 10
+
+        ScrollView:
+            MDList:
+                id: establishment_list
